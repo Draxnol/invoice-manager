@@ -25,11 +25,11 @@ class Contact_manager:
         if(int(user_input) == 2):
             print("Current contact billing address is: {}".format(self.contact_book[contact_ID]["contact_billing"]))
             user_input2 = input("Enter new value\n")
-            self.contact_book[contact_ID]["contact_name"] = user_input2
+            self.contact_book[contact_ID]["contact_billing"] = user_input2
         if(int(user_input) == 3):
             print("Current company ltd is: {}".format(self.contact_book[contact_ID]["contact_LTD"]))
             user_input2 = input("Enter new value\n")
-            self.contact_book[contact_ID]["contact_name"] = user_input2
+            self.contact_book[contact_ID]["contact_LTD"] = user_input2
     def display_contact(self):
         return self.contact_book
     def save_contacts(self):
