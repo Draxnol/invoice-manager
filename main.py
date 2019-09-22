@@ -7,8 +7,9 @@ def main_menu():
     print("options should be:")
     print("1:\tCreate contact")
     print("2:\tView contacts")
-    print("3:\tSave contact")
+    print("3:\tSave contacts")
     print("4:\tload contacts")
+    print("5:\tmodify contact")
     input_option = input("Enter Option:")
     print(input_option) 
     if(int(input_option) == 1):
@@ -20,6 +21,10 @@ def main_menu():
         con_mgr.save_contacts()
     if(int(input_option) == 4):
         con_mgr.load_contacts()
+        main_menu()
+    if(int(input_option) == 5):
+        user_input = input("Enter Contact ID\n")
+        con_mgr.modify_contact(user_input)
         main_menu()
     else:
         print("invalid selection")
