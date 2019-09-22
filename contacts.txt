@@ -1,1 +1,0 @@
-{"bob": {"inovice_count": "", "contact_LTD": "1222212", "contact_name": "bob jolas the second", "contact_billing": "fakestreet"}, "micky's": {"inovice_count": "", "contact_LTD": "1928021", "contact_name": "112132", "contact_billing": "1232 fakestreet"}}
