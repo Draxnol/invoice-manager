@@ -31,7 +31,16 @@ class Contact_manager:
             user_input2 = input("Enter new value\n")
             self.contact_book[contact_ID]["contact_LTD"] = user_input2
     def display_contact(self):
-        return self.contact_book
+       #Here are display options
+        print("Display options should be")
+        print("1:\tDisplay Contacts and contact name")
+        print("2:\tDisplay Contact billing addresses")
+        print("3:\tDiplay Contacts and contact ltd")
+        user_input = input("Enter Selection")
+        if(int(user_input) == 1):
+               
+        if(int(user_input) == 1):
+        if(int(user_input) == 1):
     def save_contacts(self):
         with open("contacts.txt","w") as file:
             file.write(json.dumps(self.contact_book))
