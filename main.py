@@ -1,5 +1,5 @@
 from invoice_manager import Invoice_manager
-from contact_manager import Contact_manager
+from Contact_manager import Contact_manager
 import os.path
 import os
 
@@ -47,7 +47,8 @@ def contact_menu():
     print("3:\tSave contacts")
     print("4:\tLoad contacts")
     print("5:\tModify contact")
-    print("6:\tMain menu")
+    print("6:\tRemove contact")
+    print("7:\tMain menu")
     
     input_option = input("Enter Option:\n")
     
@@ -59,6 +60,7 @@ def contact_menu():
         
         elif(int(input_option) == 2):
             con_mgr.display_contact()
+            contact_menu()
         
         elif(int(input_option) == 3):
             con_mgr.save_contacts()
@@ -73,12 +75,19 @@ def contact_menu():
             contact_menu()
         
         elif(int(input_option) == 6):
+            con_mgr.remove_contact()
+            contact_menu()        
+        
+        elif(int(input_option) == 7):
             main_menu()
+        
         else:
             print("Invaild Option")
             main_menu()
             
+            
     except:
         contact_menu()
+        
 
 main_menu()

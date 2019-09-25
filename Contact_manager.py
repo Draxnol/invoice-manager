@@ -13,13 +13,13 @@ class Contact_manager:
         contact_ID = input("Enter contact ID or code or nickname\n")
         self.contact_book[contact_ID] = {"contact_ID": contact_ID, "contact_name": "", "contact_billing": "", "contact_LTD": "", "inovice_count": ""}
         
-        user_input = input("enter contact name\n")
+        user_input = input("Enter contact name\n")
         self.contact_book[contact_ID]["contact_name"] = user_input
         
-        user_input = input("enter contact billing information\n")
+        user_input = input("Enter contact billing information\n")
         self.contact_book[contact_ID]["contact_billing"] = user_input
         
-        user_input = input("enter contact ltd number\n")
+        user_input = input("Enter contact ltd number\n")
         self.contact_book[contact_ID]["contact_LTD"] = user_input
 
     def modify_contact(self, contact_ID):
@@ -44,12 +44,21 @@ class Contact_manager:
             user_input2 = input("Enter new value\n")
             self.contact_book[contact_ID]["contact_LTD"] = user_input2
 
+    def remove_contact(self):
+        user_input = input("Enter the ID of the contact to be deleted\n")
+        try:
+            del self.contact_book[user_input]
+        except:
+            print("Something went wrong")
+    
     def display_contact(self):
        # Here are display options
         print("Display options should be")
-        print("1:\tDisplay Contact and contact name")
+        print("1:\tDisplay Contact ID and contact name")
         print("2:\tDisplay Contact billing addresses")
-        print("3:\tDiplay Contacts and contact ltd")
+        print("3:\tDisplay Contacts and contact ltd")
+        
+        
         user_input = input("Enter Selection\n")
         
         if(int(user_input) == 1):
@@ -69,7 +78,7 @@ class Contact_manager:
                 print("_______________")
                 print("Contact ID: {}\nContact Name: {}".format(k['contact_ID'], k['contact_LTD']))
             input("....")
-
+            
 
     def save_contacts(self):
         with open(self.file_name, "w") as file:
