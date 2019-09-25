@@ -4,7 +4,7 @@ import os.path
 import os
 
 
-inv_mgr = Invoice_manager()
+
 con_mgr = Contact_manager()
 # Menu
 def clear_screen():
@@ -31,13 +31,16 @@ def main_menu():
     if (int(input_option) == 1):
         contact_menu()
     elif(int(input_option) == 2):
-        main_menu()
+        invoice_menu()
     else:
         print("Invalid Selection")
     
 
 def invoice_menu():
-    pass
+    inv_mgr = Invoice_manager(con_mgr)
+    inv_mgr.create_invoice()
+    print(inv_mgr.current_invoice.get_date())
+    input()
     
 def contact_menu():
     clear_screen()
