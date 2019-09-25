@@ -12,10 +12,13 @@ class Contact_manager:
     def create_contact(self):
         contact_ID = input("Enter contact ID or code or nickname\n")
         self.contact_book[contact_ID] = {"contact_ID": contact_ID, "contact_name": "", "contact_billing": "", "contact_LTD": "", "inovice_count": ""}
+        
         user_input = input("enter contact name\n")
         self.contact_book[contact_ID]["contact_name"] = user_input
+        
         user_input = input("enter contact billing information\n")
         self.contact_book[contact_ID]["contact_billing"] = user_input
+        
         user_input = input("enter contact ltd number\n")
         self.contact_book[contact_ID]["contact_LTD"] = user_input
 
@@ -54,11 +57,13 @@ class Contact_manager:
                 print("_______________")
                 print("Contact ID: {}\nContact Name: {}".format(k['contact_ID'], k['contact_name']))
             input("....")
+        
         if(int(user_input) == 2):
             for k in self.contact_book.values():
                 print("_______________")
                 print("Contact ID: {}\nContact Name: {}".format(k['contact_ID'], k['contact_billing']))
             input("....")
+        
         if(int(user_input) == 3):
             for k in self.contact_book.values():
                 print("_______________")
