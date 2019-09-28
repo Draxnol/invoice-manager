@@ -42,21 +42,27 @@ def invoice_menu():
     print("1:\tSelect contact")
     print("2:\tCreate invoice")
     print("3:\tView selected contact")
-    print("Main menu")
+    print("4:\tMain menu")
+    print("5:\tView selected invoice")
     input_option = input("Enter option:")
         
     try:
         if(int(input_option) == 1):
             user_input = input("Enter contact ID")
             inv_mgr.select_contact(con_mgr.select_contact(user_input))
-            invoice_menu()
-            
+            invoice_menu()        
         elif(int(input_option) == 2):
-            pass
+            inv_mgr.create_invoice()
+            invoice_menu()
         elif(int(input_option) == 3):
             print(inv_mgr.get_selected_contact())
-        elif(int(input_option) == 3):
+            invoice_menu()
+        elif(int(input_option) == 4):
             main_menu()
+        elif(int(input_option) == 5):
+            print(inv_mgr.get_current_invoice())
+            input()
+            invoice_menu()
     except:
         print("something went wrong")
         main_menu()
