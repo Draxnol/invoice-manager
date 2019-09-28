@@ -3,11 +3,15 @@ from invoice import Invoice
 #Then update invoice count for object
 
 class Invoice_manager:
-    def __init__(self, contact_manager):
-        self.con_mgr = contact_manager
+    def __init__(self):
+        self.con_mgr = None
     def print(self):
         self.con_mgr.display_contact()
     def create_invoice(self):
         self.current_invoice = Invoice()
     def get_invoice_date(self):
         print(self.current_invoice.get_date())
+    def select_contact(self, contact):
+        self.selected_contact = contact
+    def get_selected_contact(self):
+        return self.selected_contact

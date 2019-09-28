@@ -79,7 +79,9 @@ class Contact_manager:
                 print("Contact ID: {}\nContact Name: {}".format(k['contact_ID'], k['contact_LTD']))
             input("....")
             
-
+    def select_contact(self, contact_id):
+        return self.contact_book[contact_id]
+    
     def save_contacts(self):
         with open(self.file_name, "w") as file:
             file.write(json.dumps(self.contact_book))

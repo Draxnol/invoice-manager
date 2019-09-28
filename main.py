@@ -6,6 +6,7 @@ import os
 
 
 con_mgr = Contact_manager()
+inv_mgr = Invoice_manager()
 # Menu
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -37,11 +38,32 @@ def main_menu():
     
 
 def invoice_menu():
-    inv_mgr = Invoice_manager(con_mgr)
-    inv_mgr.create_invoice()
-    print(inv_mgr.current_invoice.get_date())
-    input()
-    
+    clear_screen()
+    print("1:\tSelect contact")
+    print("2:\tCreate invoice")
+    print("3:\tView selected contact")
+    print("Main menu")
+    input_option = input("Enter option:")
+        
+    try:
+        if(int(input_option) == 1):
+            user_input = input("Enter contact ID")
+            inv_mgr.select_contact(con_mgr.select_contact(user_input))
+            invoice_menu()
+            
+        elif(int(input_option) == 2):
+            pass
+        elif(int(input_option) == 3):
+            print(inv_mgr.get_selected_contact())
+        elif(int(input_option) == 3):
+            main_menu()
+    except:
+        print("something went wrong")
+        main_menu()
+        
+
+
+
 def contact_menu():
     clear_screen()
     print("Contact options:")
@@ -67,6 +89,7 @@ def contact_menu():
         
         elif(int(input_option) == 3):
             con_mgr.save_contacts()
+            contact_menu()
         
         elif(int(input_option) == 4):
             con_mgr.load_contacts()
