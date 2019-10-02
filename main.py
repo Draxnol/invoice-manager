@@ -48,23 +48,26 @@ def invoice_menu():
         
     try:
         if(int(input_option) == 1):
-            user_input = input("Enter contact ID")
-            inv_mgr.select_contact(con_mgr.select_contact(user_input))
+            user_contact_selection = input("Enter contact ID\n")
+            inv_mgr.select_contact(con_mgr.select_contact(user_contact_selection))
             invoice_menu()        
-        elif(int(input_option) == 2):
+        elif(int(input_option) == 2):            
             inv_mgr.create_invoice()
+            input("Invoice Created")            
             invoice_menu()
         elif(int(input_option) == 3):
             print(inv_mgr.get_selected_contact())
+            input()
             invoice_menu()
         elif(int(input_option) == 4):
             main_menu()
         elif(int(input_option) == 5):
-            print(inv_mgr.get_current_invoice())
+            print(inv_mgr.current_invoice.get_date())
             input()
             invoice_menu()
-    except:
-        print("something went wrong")
+    except ValueError:
+        print("Error: You probably input a non-number")
+        input()
         main_menu()
         
 
@@ -118,7 +121,7 @@ def contact_menu():
             main_menu()
             
             
-    except:
+    except ValueError:
         contact_menu()
         
 
