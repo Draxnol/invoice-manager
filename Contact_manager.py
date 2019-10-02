@@ -11,7 +11,7 @@ class Contact_manager:
 
     def create_contact(self):
         contact_ID = input("Enter contact ID or code or nickname\n")
-        self.contact_book[contact_ID] = {"contact_ID": contact_ID, "contact_name": "", "contact_billing": "", "contact_LTD": "", "inovice_count": ""}
+        self.contact_book[contact_ID] = {"contact_ID": contact_ID, "contact_name": "", "contact_billing": "", "contact_LTD": "", "invoice_number": 0}
         
         user_input = input("Enter contact name\n")
         self.contact_book[contact_ID]["contact_name"] = user_input
@@ -21,6 +21,7 @@ class Contact_manager:
         
         user_input = input("Enter contact ltd number\n")
         self.contact_book[contact_ID]["contact_LTD"] = user_input
+        self.contact_book[contact_ID]["invoice_number"] = 0
 
     def modify_contact(self, contact_ID):
         print("Options should be:")
