@@ -88,5 +88,10 @@ class Contact_manager:
             file.write(json.dumps(self.contact_book))
 
     def load_contacts(self):
-        with open(self.file_name, "r+") as file:
-            self.contact_book = json.load(file)
+        try:
+            with open(self.file_name, "r+") as file:
+                self.contact_book = json.load(file)
+        except:
+            with open(self.file_name, "w") as file:
+                print("file created")
+            
