@@ -9,19 +9,21 @@ class Invoice:
     def set_date(self):
         self.date = datetime.today().strftime('%Y-%m-%d')
 
+    def get_billing_area(self):
+        billing_area = "{}{}{}".format(self.invoice_billing, self.invoice_name, self.invoice_ltd)
+        return billing_area
+    
     def process_contact(self):
         self.invoice_billing = self.selected_contact['contact_billing']
         self.invoice_name = self.selected_contact['contact_name']
         self.invoice_ltd = self.selected_contact['contact_LTD']
         self.invoice_number = self.selected_contact['invoice_number']
-        print(self.invoice_billing)
+        print(self.get_billing_area())
+        print("---------------Contact Processed----------------")
         input()
         
-        
-    def billing_area(self):
-        billing_area = "{}{}{}".format(self.invoice_billing, self.invoice_name, self.invoice_ltd)
-        return billing_area
-
+                         
+    
     def get_date(self):
         return self.date    
     

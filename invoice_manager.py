@@ -4,6 +4,7 @@ from invoice import Invoice
 
 
 class Invoice_manager:
+    invoice_book = {}
     def __init__(self):
         self.con_mgr = None
 
@@ -12,9 +13,6 @@ class Invoice_manager:
         
     def create_invoice(self):
         self.current_invoice = Invoice(self.selected_contact)
-      
-    def get_invoice_date(self):
-        print(self.current_invoice.get_date())
 
     def select_contact(self, contact):
         self.selected_contact = contact
@@ -25,6 +23,16 @@ class Invoice_manager:
     def get_current_invoice(self):
         return self.current_invoice
     
+    def export_current_invoice(self):
+        print(self.current_invoice.get_date())
+        export_string = "INVOICE{} \n Billing Address: {}\t {}".format(self.current_invoice.get_invoice_number(),
+                                                                       self.current_invoice.get_billing_area(),
+                                                                       self.current_invoice.get_date())
+        
+        print(export_string)
+        input()
+        with open("invoicetest.txt", "w") as file:
+            file.write(export_string)
 
             
         

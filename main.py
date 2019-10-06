@@ -45,8 +45,9 @@ def invoice_manager_menu():
     print("1:\tSelect contact")
     print("2:\tCreate invoice")
     print("3:\tView selected contact")
-    print("4:\tMain menu")
-    print("5:\tView selected invoice")
+    print("4:\tView selected invoice")
+    print("5:\tExport Current invoice to text file")
+    print("6:\tMain menu")
     input_option = input("Enter option:")
 
     try:
@@ -63,12 +64,14 @@ def invoice_manager_menu():
             input()
             invoice_manager_menu()
         elif(int(input_option) == 4):
-            main_menu()
-        elif(int(input_option) == 5):
             print(inv_mgr.current_invoice.get_date())
             print(inv_mgr.current_invoice.get_invoice_number())
             input()
             invoice_manager_menu()
+        elif(int(input_option) == 5):
+            inv_mgr.export_current_invoice()
+        elif(int(input_option) == 6):
+            main_menu()
     except ValueError:
         print("Error: You probably input a non-number")
         input()
