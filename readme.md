@@ -22,7 +22,6 @@ Use pip to install required imports
 
 * **Robert Kaczur** - *Initial work* - [Draxnol](https://github.com/draxnol)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
